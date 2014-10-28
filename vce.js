@@ -37,6 +37,9 @@ var vce = (function() {
         var selector = options.selector || "#vce-container";
         if (typeof options === "string") {
             selector = options;
+        } else if (options.el && typeof options.el === "string") {
+            selector = options.el;
+            delete options.el;
         }
 
         if (options.video_url) {
@@ -49,13 +52,13 @@ var vce = (function() {
 
             if (options.el) {
                 el = options.el;
-            } else {
+            } else if (selector) {
                 el = document.querySelector(selector);
             }
             if (!el || !(el instanceof Element || el.length)) {
                 throw "No element or selector passed";
             }
-            if (el.length) {
+            if (el instanceof $) {
                 el = el[0];
             }
 
@@ -77,7 +80,7 @@ var vce = (function() {
     }
 
     var showChoices = vce.showChoices = function(node) {
-        $("#vce-overlay").removeClass("hidden");
+        $("#vce-overlay").removeClass("vce-hidden");
         for (var c = 0 ; c < node.choices.length ; c++) {
             (function(choice) {
                 var choiceDiv = $("<div class='vce-choice'>");
@@ -199,8 +202,8 @@ var vce = (function() {
                 popcorn.play();
                 popcorn.on("ended", function() {
                     popcorn.off("ended");
-                    if ($("#video")[0].webkitExitFullScreen) {
-                        $("#video")[0].webkitExitFullScreen();
+                    if ($("#vce-video")[0].webkitExitFullScreen) {
+                        $("#vce-video")[0].webkitExitFullScreen();
                     }
                     showPostVideo(node);
                     if (node.after) {
@@ -215,7 +218,7 @@ var vce = (function() {
             popcorn.on("error", function(e) {
                 popcorn.off("error");
                 console.log("error: " + e);
-                $("#vce-error").addClass("shown");
+                $("#vce-error").addClass("vce-shown");
                 $("#vce-spinner").removeClass("shown");
             });
             popcorn.load();

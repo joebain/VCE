@@ -110,10 +110,17 @@ choices: [
 ## Usage
 
 ```javascript
-vce.init("#my-container", myGame);
+vce.init(myGame, {el: "#container"});
 ```
 
 `myGame` can be a node or and array of nodes. If it is an array the first node will be the start of your adventure. This is useful if you have some nodes with ids which are used frequently and you would like to put them outside of the tree.
+
+### Options
+
+The second paramater is for options. If you don't want specify any options then you can just pass the container element through as the second paramater. Otherwise an object should be passed, the following options are valid:
+
+ * **el** - a plain or jquery wrapped element or a css style selector for an element which will contain the adventure.
+ * **video_url** - you may want to host the videos at a separate url (S3 for example). You can specify a root url for the videos with this parameter.
 
 ## Dependencies
 
