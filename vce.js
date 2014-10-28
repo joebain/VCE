@@ -29,12 +29,18 @@ var vce = (function() {
 
     var popcorn;
 
+    var video_url;
+
     var init = vce.init = function(tree, options) {
         options = options || {};
 
         var selector = options.selector || "#vce-container";
         if (typeof options === "string") {
             selector = options;
+        }
+
+        if (options.video_url) {
+            video_url = options.video_url;
         }
 
         var el;
@@ -167,10 +173,10 @@ var vce = (function() {
                     if (s === sizes.length -1 || window.innerWidth * window.devicePixelRatio < sizes[s+1].w) {
                         var source = $("<source>");
                         var base_url = "";
-                        if (window.location.host === "joeba.in") {
-                            base_url = "http://s3-eu-west-1.amazonaws.com/joebain/socks/videos/";
-                        } else {
+                        if (!video_url || window.location.host === "localhost" || window.location.host === "0.0.0.0" || window.location.host === "127.0.0.1") {
                             base_url = "videos_transcoded/";
+                        } else {
+                            base_url = video_url;
                         }
                         source[0].src = base_url + getVideo(node.video) + "--" + h + "." + type.extension;
                         source.attr("type", type.type);
