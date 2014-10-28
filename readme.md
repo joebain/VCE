@@ -10,7 +10,7 @@ Play an exciting adventure about finding a lost sock [here!](http://joeba.in/soc
 
 ## Example
 
-```
+```javascript
 vce.init([{
     video: "intro",
     choices: [
@@ -36,7 +36,7 @@ vce.init([{
 
 Each part of your adventure is represented by a node. Nodes usually have a **video** associated with them.
 
-```
+```javascript
 { video: "my-video" }
 ```
 
@@ -46,7 +46,7 @@ A node with no **video** will just show the **title** and **choices**.
 
 Nodes can also contain text: **titles** and **sub-titles**. This helps frame the video and the choices.
 
-```
+```javascript
 { title: "Welcome to My Adventure", sub_title: "Are you brave enough?!" }
 ```
 
@@ -56,7 +56,7 @@ Text is always shown after a video, if there is one.
 
 Nodes usually also contain **choices** for the player to pick their next adventure. The **choices** are an array, each entry should have a label for the button and a next node, which will be played if the player picks that choice.
 
-```
+```javascript
 choices: [
     {
         label: "Go North",
@@ -79,7 +79,7 @@ A node with no choices is a dead end. A node can have a **next** node if it does
 
 Each node can optionally contain an **id** which allows other nodes to refer to it by name. This allows the game master to create loops, or to reuse nodes in different places.
 
-```
+```javascript
 choices: [
     {
         label: "Go North",
@@ -109,7 +109,7 @@ choices: [
 
 ## Usage
 
-```
+```javascript
 vce.init("#my-container", myGame);
 ```
 
