@@ -113,7 +113,7 @@ choices: [
 vce.init(myGame, {el: "#container"});
 ```
 
-`myGame` can be a node or and array of nodes. If it is an array the first node will be the start of your adventure. This is useful if you have some nodes with ids which are used frequently and you would like to put them outside of the tree.
+`myGame` can be a node or an array of nodes. If it is an array the first node will be the start of your adventure. This is useful if you have some nodes with ids which are used frequently and you would like to put them outside of the tree.
 
 ### Options
 

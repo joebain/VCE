@@ -32,6 +32,11 @@ var vce = (function() {
     var video_url;
 
     var init = vce.init = function(tree, options) {
+        if (!(tree instanceof Array)) {
+            tree = [tree];
+        }
+        
+        //options
         options = options || {};
 
         var selector = options.selector || "#vce-container";
