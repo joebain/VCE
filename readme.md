@@ -148,8 +148,8 @@ There is a css file (`vce-style.css`) which will provide some usable styling for
  * `.vce-choice` - a choice button.
  * `#vce-spinner` - shown when a video is loading.
  * `#vce-error` - shown in the case of an error. Contains an error message.
- * `#vce-hidden` - applied to some elements when they should be hidden.
- * `#vce-shown` - applied to some elements when they should be shown (which are hidden by default, eg `#vce-error`)
+ * `.vce-hidden` - applied to some elements when they should be hidden.
+ * `.vce-shown` - applied to some elements when they should be shown (which are hidden by default, eg `#vce-error`)
 
 ## Licence
 
