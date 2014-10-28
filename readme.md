@@ -6,6 +6,8 @@ The Video Choice Engine (VCE) is a small javascript library for showing interact
 
 ## Demo
 
+![](https://raw.githubusercontent.com/joebain/lost-sock/master/screenshot.png)
+
 Play an exciting adventure about finding a lost sock [here!](http://joeba.in/sock)
 
 ## Example
